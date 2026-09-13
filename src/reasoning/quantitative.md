@@ -1,7 +1,7 @@
 # Quantitative Financial Reasoning
 
 The goal of this layer is to enhance general AI reasoning
-with quantitative financial analysis.
+with quantitative financial market analysis.
 
 ## Initial Objectives
 
