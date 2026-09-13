@@ -1,30 +1,50 @@
 # Financial AI Engine
 
-A domain-specific AI intelligence engine for the financial sector.
+An AI intelligence engine specialized in financial markets.
 
 ## Vision
 
-Build an AI system specialized in financial reasoning, analysis,
-risk assessment, and decision intelligence.
+Build a specialized AI system capable of understanding,
+analyzing, and reasoning about financial markets.
 
 ## Core Areas
 
-- Financial reasoning
-- Market intelligence
-- Quantitative analysis
-- Macroeconomic analysis
-- Risk management
-- Financial data interpretation
+- Market Analysis
+- Quantitative Market Reasoning
+- Macroeconomic Market Drivers
+- Market Regime Detection
+- Risk Analysis
+- Cross-Asset Analysis
+- Financial Market Data Interpretation
 
-## Development Status
+## Initial Markets
+
+The project will initially focus on:
+
+- Equities & Indices
+- Forex
+- Futures
+- Commodities
+- Bonds & Rates
+- Crypto
+
+## Development Approach
+
+The system will be developed by benchmarking general-purpose
+AI models and building specialized financial-market intelligence
+layers on top of their capabilities.
+
+## Current Status
 
 Early-stage research and development.
 
 ## Roadmap
 
-1. Baseline AI evaluation
-2. Financial reasoning layer
-3. Financial data layer
-4. Risk intelligence
-5. Evaluation & benchmarking
-6. Prototype
+1. Baseline Evaluation
+2. Quantitative Market Reasoning
+3. Market Data Layer
+4. Market Regime Detection
+5. Risk Intelligence
+6. Cross-Asset Intelligence
+7. Evaluation & Benchmarking
+8. Prototype
