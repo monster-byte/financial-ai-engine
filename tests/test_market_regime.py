@@ -13,8 +13,10 @@ def test_bullish_market():
     )
 
     assert result.regime == "risk_on"
-    assert result.probability > 50
+    assert result.probabilities["risk_on"] > 50
     assert result.confidence > 50
+
+
 def test_market_conflicts():
     result = detect_market_regime(
         equity_trend=0.8,
