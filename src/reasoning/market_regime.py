@@ -31,7 +31,6 @@ def detect_market_regime(
         + growth * 0.10
     )
 
-    # Convert the market score into three regime probabilities.
     risk_on = max(0, 50 + score * 50)
     risk_off = max(0, 50 - score * 50)
     transition = max(0, 100 - abs(score) * 100)
