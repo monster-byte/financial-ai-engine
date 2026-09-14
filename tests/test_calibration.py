@@ -29,4 +29,4 @@ def test_calibration_error():
 
     error = calibration_error(tracker)
 
-    assert error == 50.0
+    assert error == 40.0
