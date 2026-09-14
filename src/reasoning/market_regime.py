@@ -8,6 +8,7 @@ class MarketRegimeResult:
     probabilities: Dict[str, float]
     risk_level: str
     confidence: float
+    signal_quality: float
     conflicts: Dict[str, str]
 
 
@@ -60,7 +61,7 @@ def detect_market_regime(
             "risk_off": 25 - score * 25,
         }
 
-    # Normalize probabilities so they always sum to 100%.
+    # Normalize probabilities to 100%.
     total = sum(probabilities.values())
 
     probabilities = {
@@ -76,7 +77,7 @@ def detect_market_regime(
     else:
         risk_level = "low"
 
-    # Detect conflicting market signals.
+    # Detect conflicting signals.
     conflicts = {}
 
     if equity_trend > 0 and growth < 0:
@@ -94,7 +95,26 @@ def detect_market_regime(
             "Strong USD vs bullish equities"
         )
 
-    # Confidence is based on the probability of the dominant regime.
+    # Calculate signal quality.
+    signal_quality = 100
+
+    # Conflicting signals reduce signal quality.
+    signal_quality -= len(conflicts) * 15
+
+    # Strong breadth improves signal quality.
+    if abs(breadth) >= 0.70:
+        signal_quality += 10
+
+    # Strong credit confirmation improves signal quality.
+    if abs(credit) >= 0.70:
+        signal_quality += 10
+
+    # Extreme volatility reduces signal quality.
+    if abs(volatility) >= 0.70:
+        signal_quality -= 15
+
+    signal_quality = max(0, min(100, signal_quality))
+
     confidence = probabilities[regime]
 
     return MarketRegimeResult(
@@ -102,5 +122,6 @@ def detect_market_regime(
         probabilities=probabilities,
         risk_level=risk_level,
         confidence=round(confidence, 2),
+        signal_quality=round(signal_quality, 2),
         conflicts=conflicts,
     )
