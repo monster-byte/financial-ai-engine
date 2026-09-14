@@ -33,3 +33,4 @@ def test_performance_summary():
     assert summary["correct"] == 1
     assert summary["incorrect"] == 1
     assert summary["accuracy"] == 50.0
+    assert summary["calibration_error"] == 47.5
