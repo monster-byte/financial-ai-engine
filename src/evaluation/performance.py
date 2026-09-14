@@ -1,4 +1,5 @@
 from src.evaluation.track_record import TrackRecord
+from src.evaluation.calibration import calibration_error
 
 
 def evaluated_predictions(tracker: TrackRecord) -> int:
@@ -34,6 +35,7 @@ def performance_summary(tracker: TrackRecord) -> dict:
             "correct": 0,
             "incorrect": 0,
             "accuracy": 0.0,
+            "calibration_error": 0.0,
         }
 
     return {
@@ -41,4 +43,5 @@ def performance_summary(tracker: TrackRecord) -> dict:
         "correct": correct_predictions(tracker),
         "incorrect": incorrect_predictions(tracker),
         "accuracy": tracker.accuracy(),
+        "calibration_error": calibration_error(tracker),
     }
